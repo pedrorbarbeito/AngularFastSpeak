@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+<!doctype html>
+<html lang="en">
+<head >
+  <link rel="stylesheet">
+</head>
+<body>
+<header class="header">
+  <nav>
+  </nav>
+</header>
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+
+      <div class="card" style="margin-top: -3%">
+        <h2 class="text-center" style="margin-top: 10px" ></h2>
+
+        <div class="card-body">
+
+          <form  method="post" role="form"  class="form-horizontal" style="text-align-last:
+          center"[formGroup]="crearComunidadForm" (ngSubmit)="crearComunidad(crearComunidadForm.value)">
+
+            <h3 style="text-align: center; margin-bottom: 2%; font-size: 120%; color: #292C35"><b>CREAR COMUNIDAD</b></h3>
+            <!-- Nombre de la comunidad -->
+            <div class="formulario__grupo titulos_form">
+              <label  class="form-label">Nombre</label>
+                <input formControlName="nombre" style="width: 65%; margin-left: 1%" type="text"/>
+            </div>
+
+            <!-- Tipo de comunidad -->
+            <div class="formulario__grupo titulos_form">
+              <label  class="form-label">Tipo</label>
+              <input formControlName="tipo" style="width: 65%; margin-left: 6%"  type="text"/>
+            </div>
+
+            <div class="formulario__grupo titulos_form">
+              <label  class="form-label">Imagen</label>
+              <input formControlName="imagen" type="text" style="width: 65%; margin-left: 1%"  placeholder="Link de imagen ..."/>
+            </div>
+
+            <div class="formulario__grupo titulos_form">
+              <label  class="form-label">Banner</label>
+              <input formControlName="banner" style="width: 65%; margin-left: 1%"  type="text" placeholder="Link del banner ..."/>
+            </div>
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+              <button type="submit" style="width: 65%; margin-left: 1%"  class="formulario__btn">Crear Comunidad</button>
+              <br>
+            </div>
+
+            <br>
+
+            <!-- Mensaje de exito -->
+            <div class="notification is-success" *ngIf="successStatus">
+              <p>{{ successMsj }}</p>
+            </div>
+
+            <!-- Mensaje de error -->
+            <div class="notification is-danger" *ngIf="errorStatus">
+              <p>{{ errorMsj }}</p>
+            </div>
+
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<footer></footer>
+</html>

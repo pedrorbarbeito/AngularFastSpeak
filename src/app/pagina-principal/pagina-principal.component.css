@@ -1,0 +1,301 @@
+.table{
+  margin-top: 20%;
+  margin-left: 10%;
+  margin-right: 15%;
+}
+
+.boton{
+  margin-right: 5%;
+}
+
+.td{
+  padding: 5%;
+}
+
+.publi{
+  width: 120%;
+
+}
+
+.titulo{
+  font-size: 200%;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+
+}
+.perfil-usuario-footer{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+  background-color: #fff;
+  border-radius: 15px;
+  width: 100%;
+}
+
+
+.imagen-perfil{
+  width: 13%;
+  position: relative;
+  height: 15%;
+  border: 7px solid #FFFFFF;
+  background-color: #DFE5F2;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+  z-index: 1;
+  margin-top: 0.75%;
+  margin-bottom: 0.75%;
+  margin-left: 0.75%;
+}
+
+.like{
+
+}
+
+/*
+PUBLICACIONES
+ */
+
+.bandeja-publicaciones{
+
+  width: 100%;
+  margin-left: 5%;
+  padding-bottom: 1%;
+
+}
+
+.right-col{
+  padding-left: 0;
+}
+
+.imagen-pbli{
+  max-width: 100%;
+}
+
+/*
+Botones
+ */
+
+.botones{
+
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+  border-radius: 15px;
+  width: 75%;
+  margin-top: 1%;
+
+}
+
+.posicion-like{
+  margin-left: 82%;
+  margin-top: -8%;
+  margin-bottom: 5%;
+}
+
+.imagen-comentario{
+
+  width: 13%;
+  position: relative;
+  height: 18%;
+  background-color: #DFE5F2;
+  border-radius: 50%;
+  z-index: 1;
+  margin-top: 0.75%;
+  margin-bottom: 0.75%;
+  margin-left: 0.75%;
+}
+
+
+.crear-c{
+  position: relative;
+  margin-top: 4%;
+  margin-left: 22%;
+}
+.crear-p{
+  position: relative;
+  width: 120%;
+  margin-left: 22%;
+}
+
+.estiloBoton{
+  border-radius: 15px;
+  width: 65%;
+  color: #DFE5F2;
+}
+
+.estiloBoton2{
+  border-radius: 15px;
+  width: 170%;
+}
+
+
+
+.publicaciones{
+  border-radius: 1px;
+  padding: 3%;
+}
+
+.avatar img {
+  border-radius: 50%;
+}
+
+.cuerpo{
+margin-left: -20%;
+}
+.avatar{
+  margin-left: 10%;
+  margin-top: -20%;
+}
+.mensaje .avatar,
+.usuario-seleccionado .avatar,
+.usuario .avatar {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+  position: relative;
+  background-color: #E4E8F0;
+  border-radius: 50%;
+}
+.mensaje .avatar {
+  width: 35px;
+  height: 35px;
+  margin-right: 1rem;
+}
+.mensaje.left .avatar {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+
+.seccion-perfil-usuario{
+  margin-left: 8%;
+}
+.seccion-perfil-usuario .perfil-usuario-body {
+  width: 90%;
+  position: relative;
+
+}
+
+.seccion-perfil-usuario .perfil-usuario-body .titulo {
+  display: block;
+  width: 100%;
+  font-size: 1.75em;
+  margin-bottom: 0.5rem;
+}
+
+.seccion-perfil-usuario .perfil-usuario-body .texto {
+  color: #848484;
+  font-size: 0.95em;
+}
+
+.seccion-perfil-usuario .perfil-usuario-footer,
+.seccion-perfil-usuario .perfil-usuario-bio {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+  background-color: #fff;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.seccion-perfil-usuario .perfil-usuario-bio {
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+
+
+
+
+
+
+.seccion-perfil-usuario .redes-sociales .boton-redes+.boton-redes {
+  margin-top: .5rem;
+}
+
+.seccion-perfil-usuario .boton-redes.facebook {
+  background-color: #5955FF;
+}
+
+.seccion-perfil-usuario .boton-redes.twitter {
+  background-color: #35E1BF;
+}
+
+.seccion-perfil-usuario .boton-redes.instagram {
+  background: linear-gradient(45deg, #FF2DFD, #40A7FF);
+}
+
+@charset "utf-8";
+.tarjeta{
+  display: flex;
+  margin-left: 40%;
+  flex-direction:column;
+  justify-content:space-between;
+  width:420px;
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+  border-radius:15px;
+  font-family: sans-serif;
+}
+.titulo{
+  font-size: 24px;
+  padding: 10px 10px 0 10px;;
+}
+.cuerpo{
+  padding: 10px;
+}
+.pie{
+  background: #6699ff;
+  border-radius:0 0 15px 15px;
+  padding: 10px;
+  text-align:center;
+}
+.pie a{
+  text-decoration: none;
+  color: white;
+}
+.pie a:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: ""
+}
+
+
+/* adactacion a dispositivos */
+@media (max-width: 750px) {
+  .seccion-perfil-usuario .lista-datos {
+    width: 100%;
+  }
+
+  .seccion-perfil-usuario .perfil-usuario-portada,
+  .seccion-perfil-usuario .perfil-usuario-body {
+    width: 95%;
+  }
+
+  .seccion-perfil-usuario .redes-sociales {
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center
+  }
+
+  .seccion-perfil-usuario .redes-sociales .boton-redes+.boton-redes {
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+}
+

@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+<!doctype html>
+<html lang="en">
+<head>
+  <title>FastSpeak</title>
+</head>
+<body>
+<header class="header">
+
+</header>
+
+
+<section class="bandeja-publicaciones columns">
+  <div class="column">
+    <div class=" card mb-3" *ngFor="let publicacion of publicacionList">
+      <div *ngFor="let usuario of usuarioList">
+        <div  *ngIf="usuario.id === publicacion.usuarioId">
+          <img class=" imagen-perfil" src="{{usuario.foto}}">
+          <a href="/perfil" class="card-text" style="margin-left: 3%; font-size: 120%; color: #1c1b1b; position: relative" (click)="buscarPerfil(publicacion.usuarioId)"><b>{{usuario.username}}</b></a>
+        </div>
+      </div>
+      <img  *ngIf="publicacion.link" src="{{publicacion.link}}" class="card-img-top  imagen-pbli" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><b>{{publicacion.titulo}}</b></h5>
+        <div *ngFor="let tag of tags">
+          <button class="button is-info is-rounded is-pulled-right" style="margin-bottom: 1%"  *ngIf="publicacion.id == tag.id"> {{tag.nombre}} </button>
+        </div>
+
+        <p class="card-text"><b>{{publicacion.texto}}</b></p>
+        <p class="card-text" style="margin-bottom: 2%; margin-top:2% "><small class="text-muted">Fecha de publicación: {{publicacion.fechaPublicacion}}</small></p>
+
+        <div class="posicion-like">
+          <button (click)="votar(publicacion.id,'upvote')">
+            {{publicacion.upvote}}
+            <fa-icon class="fa-xl" [icon]="upvote"></fa-icon>
+          </button>
+          <button (click)="votar(publicacion.id,'downvote')">
+            {{publicacion.downvote}}
+            <fa-icon class="fa-xl" [icon]="downvote"></fa-icon>
+          </button>
+        </div>
+
+        <div>
+          <button class="button is-rounded dropdown-toggle" style="margin-bottom: 2%" (click)="comentarios(publicacion.id)">Comentarios</button>
+        </div>
+        <div>
+          <form [formGroup]="crearComentarioForm"
+                (ngSubmit)="crearComentarios(publicacion.id,crearComentarioForm.value)">
+            <input formControlName="texto" class="controls crearComentario position-absolute" type="text" style="width: 90%; border-radius: 2%; height: 39.7px" placeholder="Cree su comentario">
+
+            <button class="button is-rounded is-right position-relative " style="margin-left: 92.6%; border-radius: 2%; height: 11%; color: #343a40; border-color: #1c1b1b; background-color: #5160F0; margin-right: 2px"><fa-icon class="fa-xl" style="color: #DFE5F2" [icon]="send"></fa-icon></button>
+
+          </form>
+        </div>
+
+        <div style="margin-top: 1%; border-color: #343a40" *ngFor="let comentario of comentariosList">
+          <div class="card-body"  *ngIf="comentario.publicacion.id === publicacion.id">
+            <img class="imagen-comentario" style="width: 70px" src="{{comentario.usuario.foto}}">
+            <p class="card-text position-relative" style="margin-left: 13%; margin-top: -9%"><b>{{comentario.usuario.username}}</b></p>
+            <p class="card-text position-relative" style="margin-left: 13%">{{comentario.texto}}</p>
+            <p class="card-text position-relative" style="margin-top: 2%"><small  class="text-muted">{{comentario.fechaPublicacion}}</small></p>
+            <div *ngFor="let usuario of usuarioList">
+              <button (click)="eliminarC(comentario.id)" *ngIf="currentUserId == comentario.usuario.id"  class="card-text position-absolute" style="margin-left: 87%; margin-top: -10%; border: white; background-color: white" >
+                <fa-icon class="fa-xl" style="color: #bb2929" [icon]="delete" ></fa-icon></button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  <div class="column">
+    <div class=" botones ">
+
+      <p><b>¡¡FastSpeak ofrece a sus usuarios crear comunidades y publicaciones para compartir gustos con los
+        demás usuarios!!</b></p>
+      <br>
+      <a class="nav-item crear-p">
+        <button class="estiloBoton bg-dark" href="/crearPublicacion" (click)="Redirect()">Crear Publicación
+        </button>
+      </a>
+
+      <a class="nav-item crear-c">
+        <button class="estiloBoton2" href="/crearComunidad" (click)="Comunidad()">Crear Comunidad</button>
+      </a>
+
+    </div>
+
+    <div class=" botones ">
+      <p><b>¡¡FastSpeak ofrece a sus usuarios buscar comunidades y publicaciones para encontrar a tus usuarios y
+        comunidades favoritos!!</b></p>
+      <br>
+      <div>
+        <input [(ngModel)]="inputValueUsuario" name="inputValueUsuario" (ngModelChange)="onSubmitUsuario()" type="search" class="is-center" style="margin-top: 3%"
+               placeholder="Buscar Usuario">
+        <button (click)="loadPerfil()">
+          <fa-icon [icon]="search"></fa-icon>
+        </button>
+      </div>
+
+      <div>
+        <input [(ngModel)]="inputValue" name="inputValue" (ngModelChange)="onSubmit()" type="search"
+               class="is-center" style="margin-top: 3%" placeholder="Buscar Comunidad">
+        <button (click)="loadInputValue()">
+          <fa-icon [icon]="search"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<app-footer></app-footer>
+</body>
+</html>

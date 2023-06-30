@@ -1,0 +1,46 @@
+<nav class="navbar is-centered" id="navbar">
+  <div class="navbar-menu">
+    <div class="navbar-brand">
+
+      <a href="/" (click)="Inicio()">
+        <img src="../../assets/images/fastspeak-removebg.png" class="w-25">
+      </a>
+
+    </div>
+
+    <div class="navbar-end">
+
+      <div class="navbar-item is-light">
+        <a>
+          <fa-icon [icon]="faComment" href="/chat" (click)="Chat()" id="iconoChat"></fa-icon>
+        </a>
+      </div>
+
+
+
+      <a class="navbar-item has-text-centered" href="/login" *ngIf="!logueado">
+        <button class="button is-link has-background-dark is-rounded">Iniciar Sesion</button>
+      </a>
+
+      <div class="navbar-item dropdown " id="dropdown" *ngIf="logueado">
+        <a onClick="desplegarMenu()" >
+            <fa-icon [icon]="faUser" id="iconoToggle" ></fa-icon>
+        </a>
+        <div class="navbar-dropdown is-right " id="my-button">
+          <div class="field">
+            <input id="toggleDark" type="checkbox" name="modoOscuro" class="switch is-small is-rounded is-info" onClick="switchTheme()">
+            <label for="toggleDark">Modo oscuro</label>
+          </div>
+          <a class="navbar-item" href="perfil" (click)="Redirect()">Perfil</a>
+          <a class="navbar-item" (click)="cerrarSesion()">Cerrar Sesion</a>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</nav>

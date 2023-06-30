@@ -1,0 +1,17 @@
+@import "~bulma-switch";
+
+.boton-buscar{
+ margin-left: 750%;
+  position: absolute;
+  margin-top: -200%;
+
+}
+
+.formulario-buscar {
+  margin-top: 2%;
+  position: relative;
+  width: 20%;
+}
+
+
+

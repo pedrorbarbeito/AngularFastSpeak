@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+<div class="card mb-3" *ngFor="let comunidad of commList">
+  <img class="card-img-top banner"  *ngIf="comunidad.banner" src="{{comunidad.banner}}" style="position: relative" alt="">
+  <img class="card-img-top banner" src="https://preview.redd.it/k0ozkhhjubh31.jpg?width=2400&format=pjpg&auto=webp&s=6d44bf6a3a98bee16d1a70697b919fbd53a97796"
+       *ngIf="!comunidad.banner" style="position: relative" alt="">
+  <img class="circular--square" src="{{comunidad.imagen}}" style="position: absolute;" alt="">
+  <p class="position-absolute" style="margin-left: 22%; color: #DFE5F2; margin-top: 12%"><fa-icon [icon]="faUser"></fa-icon> Seguidores: {{seguidores}} <br></p>
+  <p class="nombre-comunidad" style="position: absolute;"><b>{{comunidad.nombre}}</b></p>
+  <br>
+  <button class="button is-primary is-rounded position-absolute" style="margin-left: 7.7%; margin-top: 17%; width: 15%" *ngIf="follow" (click)="FollowComunidad(comunidad.id)" >Seguir</button>
+  <button class="button is-danger is-rounded position-absolute" style="margin-left: 7.7%; margin-top: 17%; width: 15%" *ngIf="!follow" (click)="UnfollowComunidad(comunidad.id)" >Dejar de seguir</button>
+</div>
+
+<section class="bandeja-publicaciones columns">
+  <div class="column">
+    <div class=" card mb-3" *ngFor="let publicacion of publicacionesList">
+      <img  *ngIf="publicacion.link" src="{{publicacion.link}}" class="card-img-top  imagen-pbli" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><b>{{publicacion.titulo}}</b></h5>
+        <div *ngFor="let tag of tags">
+          <button class="button is-info is-rounded is-pulled-right"  *ngIf="publicacion.id == tag.id"> {{tag.nombre}} </button>
+        </div>
+        <p class="card-text"><b>{{publicacion.texto}}</b></p>
+        <p class="card-text" style="margin-bottom: 2%; margin-top:2% "><small class="text-muted">Fecha de publicación: {{publicacion.fechaPublicacion}}</small></p>
+
+        <div class="posicion-like">
+          <button (click)="votar(publicacion.id,'upvote')">
+            {{publicacion.upvote}}
+            <fa-icon class="fa-xl" [icon]="upvote"></fa-icon>
+          </button>
+          <button (click)="votar(publicacion.id,'downvote')">
+            {{publicacion.downvote}}
+            <fa-icon class="fa-xl" [icon]="downvote"></fa-icon>
+          </button>
+        </div>
+
+        <div>
+          <button class="button is-rounded  dropdown-toggle"  style="margin-bottom: 2%" (click)="comentarios(publicacion.id)">Comentarios</button>
+        </div>
+        <div>
+          <form [formGroup]="crearComentarioForm"
+                (ngSubmit)="crearComentarios(publicacion.id,crearComentarioForm.value)">
+            <input formControlName="texto" class="controls crearComentario position-absolute" type="text" style="width: 90%; border-radius: 2%; height: 40.8px" placeholder="Cree su comentario">
+
+            <button class="button is-rounded is-right position-relative " style="margin-left: 91%; border-radius: 2%; height: 41px; color: #343a40; border-color: #1c1b1b; background-color: #5160F0"><fa-icon class="fa-xl" style="color: #DFE5F2" [icon]="send"></fa-icon></button>
+
+          </form>
+        </div>
+
+        <div style="margin-top: 1%" *ngFor="let comentario of comentariosList">
+          <div class="card-body"  *ngIf="comentario.publicacion.id === publicacion.id">
+            <img style="width: 70px" src="{{comentario.usuario.foto}}">
+            <p class="card-text"><b>{{comentario.usuario.username}}</b></p>
+            <p class="card-text"><b>{{comentario.texto}}</b></p>
+            <p class="card-text position-relative" style="margin-top: 2%"><small  class="text-muted">{{comentario.fechaPublicacion}}</small></p>
+            <div *ngFor="let usuario of usuarioList">
+              <button (click)="eliminarC(comentario.id)" *ngIf="currentUserId == comentario.usuario.id"  class="card-text position-absolute" style="margin-left: 87%; margin-top: -10%; border: white; background-color: white" >
+                <fa-icon class="fa-xl" style="color: #bb2929" [icon]="delete" ></fa-icon></button>
+            </div>
+            <p class="card-text"><small class="text-muted">{{comentario.fechaPublicacion}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class=" botones ">
+
+      <p><b>¡¡FastSpeak ofrece a sus usuarios crear comunidades y publicaciones para compartir gustos con los demás usuarios!!</b></p>
+      <br>
+      <a class="nav-item crear-p">
+        <button class="estiloBoton bg-dark" href="/crearPublicacion" (click)="Redirect()">Crear Publicación</button>
+      </a>
+
+      <a class="nav-item crear-c">
+        <button class="estiloBoton2"  href="/crearComunidad" (click)="Comunidad()">Crear Comunidad</button>
+      </a>
+
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,502 @@
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+html, body {
+  font-family: 'Poppins';
+  font-size: 15px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+}
+section section{
+  margin-left: 400px;
+  margin-top: -130px;
+}
+/* ESTILOS BARRA DE NAVEGACION */
+a {
+  text-decoration: none;
+  font-weight: 500 !important;
+  color: #4568DC;
+}
+
+a:hover {
+  color: #B06AB3 !important;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.navbar {
+  padding: 5px 5px;
+}
+.columna{
+  margin-top: 2.5%;
+  margin-bottom: 1%;
+
+}
+
+.Marcas{
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  margin-top: 3%;
+}
+
+.formulario{
+  box-sizing: border-box;
+  margin-top: 30px;
+}
+
+.boton-crear{
+  margin-left: 40%;
+  width: 350px;
+  height: 75px;
+  color: white;
+}
+.boton-editar{
+  background-color: #e3b643;
+}
+
+
+h1{
+  margin-top: 2%;
+  font-size: 50px;
+  color: #1c1b1b;
+  font-style: oblique;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.navbar .navbar-brand a {
+  padding: 1rem 0;
+  display: block;
+  text-decoration: none;
+}
+
+.navbar-brand {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  letter-spacing: 6px;
+  color: #4568DC !important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 2rem 1.2rem;
+  font-size: 1.4rem;
+  position: static;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+  border-top: 4px solid #4568DC;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link.active {
+  border-top: 4px solid #4568DC;
+  color: #4568DC;
+}
+
+.navbar-nav button {
+  padding: 1.2rem 0;
+}
+
+
+.navbar-nav .btn {
+  background-color: #4568DC;
+  color: white;
+  border-radius: 0;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  margin-top: 1px;
+}
+
+.navbar-nav .btn:hover {
+  background-color: #B06AB3;
+}
+
+/* CONTENIDO DE LA PAGINA */
+body{
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.carousel .slide{
+  width: 100%;
+  max-height: 500px;
+
+}
+
+.carousel-inner{
+  height: 600px;
+  transition:  0.6s;
+}
+
+.titulos_form{
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.titulos_form > label{
+  color: #4568DC;
+}
+
+.form-input{
+  background: white;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #723030;
+}
+
+.form-btn{
+  background-color: whitesmoke;
+  border: none;
+  display: block;
+  width: 100%;
+  margin: auto;
+  color: black;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card {
+  margin: 0 0.5em;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  border: none;
+  border-radius: 0;
+}
+
+
+.carousel-inner {
+  padding: 1em;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #e1e1e1;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (min-width: 768px) {
+  .card img {
+    height: 11em;
+  }
+}
+
+
+/* ESTILOS DE LOS COMPLEMENTOS */
+
+.card {
+  height: 100%;
+}
+
+.card-price {
+  text-decoration: none;
+
+}
+.card-img-top:hover {
+  transform: translateY(-7px);
+  transition: 1s;
+}
+
+/* Formulario Login */
+
+.login-container{
+  margin-bottom: 7%;
+  margin-top: 10%;
+}
+.register-container{
+  background-image: url("https://elviajerofeliz.com/wp-content/uploads/2015/09/paisajes-de-Canada.jpg");
+}
+
+.carta-registro{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 2%;
+  opacity: 0.9;
+}
+
+
+/* SubMenu Usuario Icono */
+
+.user-pic{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.sub-menu-wrap{
+  position: relative;
+  background-color: #343a40;
+  top: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s;
+}
+
+.sub-menu-wrap.open-menu{
+  max-height: 400px;
+}
+
+.sub-menu{
+  background-color: #343a40;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info{
+  display: flex;
+  align-items: center;
+  color: #cccccc !important;
+}
+
+.user-info h3{
+  font-weight: 500;
+}
+
+.user-info img{
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.sub-menu hr{
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+.sub-menu-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #55acee;
+  margin: 13px 0;
+}
+
+.sub-menu-link p{
+  width: 100%;
+}
+
+.sub-menu-link img{
+  width: 40px;
+  background: #e5e5e5;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.sub-menu-link span{
+  font-size: 22px;
+  transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span{
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+  font-weight: 600;
+}
+
+.carta-registro{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 2%;
+  opacity: 0.9;
+}
+
+/* Estilos vistas de errores */
+.img-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Formulario Validacion */
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.formulario__label {
+  display: block;
+  font-weight: 700;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.formulario__grupo-input {
+  position: relative;
+}
+
+.formulario__input {
+  width: 60%;
+  background: #fff;
+  border: 3px solid #42424238;
+  border-radius: 3px;
+  height: 45px;
+  line-height: 45px;
+  transition: .3s ease all;
+}
+
+.formulario__input:focus {
+  border: 3px solid #0075FF;
+  outline: none;
+  box-shadow: 3px 0 30px rgba(163,163,163, 0.4);
+}
+
+.formulario__input-error {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+
+.formulario__input-error-activo {
+  display: block;
+}
+
+.formulario__validacion-estado {
+  position: absolute;
+  right: 10px;
+  width: 41%;
+  bottom: 15px;
+  z-index: 100;
+  font-size: 16px;
+  opacity: 0;
+}
+
+.formulario__checkbox {
+  margin-right: 10px;
+}
+
+.formulario__btn {
+  height: 45px;
+  line-height: 45px;
+  width: 30%;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .1s ease all;
+}
+
+.formulario__btn:hover {
+  box-shadow: 3px 0 30px rgba(163,163,163, 1);
+}
+
+.formulario__grupo-terminos,
+.formulario__mensaje,
+.formulario__grupo-btn-enviar {
+  grid-column: span 2;
+}
+
+.formulario__mensaje {
+  height: 45px;
+  line-height: 45px;
+  background: #F66060;
+  padding: 0 15px;
+  border-radius: 3px;
+  display: none;
+}
+
+.formulario__mensaje {
+  height: 45px;
+  line-height: 45px;
+  background: #F66060;
+  padding: 0 15px;
+  border-radius: 3px;
+  display: none;
+}
+
+.formulario__mensaje-activo {
+  display: grid;
+  margin-bottom: 10px;
+  width: 60%;
+  align-self: center;
+}
+
+.formulario__mensaje p {
+  margin: 0;
+}
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario__grupo-correcto .formulario__validacion-estado {
+  color: #1ed12d;
+  opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+  color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+  color: #bb2929;
+  opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+  border: 3px solid #bb2929;
+}
+
+
+
+
+

@@ -1,0 +1,115 @@
+<app-navbar></app-navbar>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<section class="seccion-perfil-usuario" *ngFor="let user of usuarioList">
+  <div class="perfil-usuario-header">
+    <div class="perfil-usuario-portada">
+      <div class="perfil-usuario-avatar">
+        <img class="" src="{{user.foto}}" alt="img-avatar">
+
+      </div>
+
+    </div>
+  </div>
+  <div class="perfil-usuario-body">
+    <div class="perfil-usuario-bio">
+      <h3 class="titulo" style="font-weight: bold;">{{user.username}}</h3>
+      <p><fa-icon [icon]="faUser"></fa-icon> Seguidores: {{seguidores}}<br></p>
+      <p style="margin-left: 10px"><fa-icon [icon]="faUserPlus" style="margin-left: 10px"></fa-icon> Seguidos: {{seguidos}}<br></p>
+      <p class="texto position-relative" style="margin-top: 5%; margin-left: -10%" style="margin-left: ">{{user.descripcion}}</p>
+      <br>
+      <button class="button is-primary is-rounded position-absolute"  *ngIf="follow && user.id !== currentUserId" (click)="FollowUsuario(user.id)" >Seguir</button>
+      <button class="button is-danger is-rounded position-absolute" *ngIf="!follow && user.id !== currentUserId" (click)="UnfollowUsuario(user.id)" >Dejar de seguir</button>
+
+    </div>
+    <div class="perfil-usuario-footer">
+      <ul class="lista-datos">
+        <li><i class="icono fas fa-map-signs"></i><b>Correo:</b> {{user.email}}</li>
+        <li><i class="icono fas fa-briefcase"></i><b>Fecha de creacion:</b> {{user.createdOn}}</li>
+      </ul>
+
+    </div>
+    <div class="redes-sociales">
+      <a (click)="Redirect()" class="boton-redes facebook fab fa-facebook-f"><a class="navbar-item ">
+        <fa-icon [icon]="faComment"></fa-icon>
+      </a></a>
+      <a class="boton-redes" href="/editarUsuario" (click)="editar()"><a class="navbar-item" id="boton">
+        <fa-icon [icon]="faUser"></fa-icon></a></a>
+
+    </div>
+  </div>
+  <div class="perfil-usuario-body">
+    <ul class="lista-datos">
+      <li><i class=""></i></li>
+    </ul>
+  </div>
+</section>
+
+<h1 style="text-align: center"><b>Mis publicaciones:</b></h1>
+
+<section class="bandeja-publicaciones columns ">
+  <div class="column">
+    <div class=" card mb-4 " *ngFor="let publicacion of publicacionList">
+      <div *ngFor="let usuario of usuarioList">
+        <div  *ngIf="usuario.id === publicacion.usuarioId">
+          <img class=" imagen-perfil" src="{{usuario.foto}}">
+          <a href="/perfil" class="card-text" style="margin-left: 3%; font-size: 120%; color: #1c1b1b; position: relative" (click)="buscarPerfil(publicacion.usuarioId)"><b>{{usuario.username}}</b></a>
+        </div>
+      </div>
+      <img  *ngIf="publicacion.link" src="{{publicacion.link}}" class="card-img-top  imagen-pbli" alt="...">
+      <div class="card-body">
+        <h5 class="card-title" style="margin-left: 2%; margin-top: 1%; margin-bottom: 1%"><b>{{publicacion.titulo}}</b></h5>
+        <hr>
+        <div *ngFor="let tag of tags">
+          <button class="button is-info is-rounded is-pulled-right"  *ngIf="publicacion.id == tag.id"> {{tag.nombre}} </button>
+        </div>
+
+        <p class="card-text" style="margin-left: 2%"><b>{{publicacion.texto}}</b></p>
+        <p class="card-text" style="margin-bottom: 1%; margin-top:1%; margin-left: 2% "><small class="text-muted">Fecha de publicación: {{publicacion.fechaPublicacion}}</small></p>
+
+        <div class="posicion-like">
+          <button (click)="votar(publicacion.id,'upvote')">
+            {{publicacion.upvote}}
+            <fa-icon class="fa-xl" [icon]="upvote"></fa-icon>
+          </button>
+          <button (click)="votar(publicacion.id,'downvote')">
+            {{publicacion.downvote}}
+            <fa-icon class="fa-xl" [icon]="downvote"></fa-icon>
+          </button>
+        </div>
+
+        <div>
+          <button class="button is-rounded dropdown-toggle" style="margin-bottom: 2%; margin-top: -1%; margin-left: 2% " (click)="comentarios(publicacion.id)">Comentarios</button>
+        </div>
+        <div>
+          <form [formGroup]="crearComentarioForm"
+                (ngSubmit)="crearComentarios(publicacion.id,crearComentarioForm.value)">
+            <input formControlName="texto" class="controls crearComentario position-relative" type="text" style="width: 90%; border-radius: 2%; height: 39.7px; margin-left: 1%" placeholder="Cree su comentario">
+
+            <button class="button is-rounded is-right position-relative " style="margin-left: 90%; border-radius: 2%; height: 39.7px; color: #343a40; border-color: #1c1b1b; background-color: #5160F0; margin-top: -5.5%"><fa-icon class="fa-xl" style="color: #DFE5F2" [icon]="send"></fa-icon></button>
+
+          </form>
+        </div>
+
+        <div style="margin-top: 1%; border-color: #343a40" *ngFor="let comentario of comentariosList">
+          <div class="card-body"  *ngIf="comentario.publicacion.id === publicacion.id">
+            <img class="imagen-comentario" style="width: 70px; margin-left: 2%" src="{{comentario.usuario.foto}}">
+            <p class="card-text position-relative" style="margin-left: 13%; margin-top: -9%"><b>{{comentario.usuario.username}}</b></p>
+            <p class="card-text position-relative" style="margin-left: 13%"><b>{{comentario.texto}}</b></p>
+            <p class="card-text position-relative" style="margin-top: 2%; margin-left: 13%"><small  class="text-muted">{{comentario.fechaPublicacion}}</small></p>
+            <div *ngFor="let usuario of usuarioList">
+              <button (click)="eliminarC(comentario.id)" *ngIf="currentUserId == comentario.usuario.id"  class="card-text position-absolute" style="margin-left: 87%; margin-top: -10%; border: white; background-color: white" >
+                <fa-icon class="fa-xl" style="color: #bb2929" [icon]="delete" ></fa-icon></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+
+</html>

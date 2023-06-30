@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="crear-publicacion.component.css">
+  <title>Crear Publicacion</title>
+</head>
+<body>
+
+
+
+        <div class="card-body">
+<section class="form-register" style=" width:70%">
+  <h4 class="titulo" style="text-align: center"><b>CREAR PUBLICACION</b></h4>
+  <form [formGroup]="crearPublicacionForm" (ngSubmit)="crearPublicacion(crearPublicacionForm.value)">
+
+    <div class="formulario__grupo titulos_form " style="text-align: center">
+      <label  class="form-label">Comunidad</label>
+      <input formControlName="comunidad" style="width: 65%; margin-left: 1%" type="text"/>
+    </div>
+
+    <div class="formulario__grupo titulos_form" style="text-align: center; margin-left: 4.5%">
+      <label  class="form-label">Titulo</label>
+      <input formControlName="titulo" style="width: 68%; margin-left: 1%" type="text"/>
+    </div>
+
+    <div class="formulario__grupo titulos_form" style="text-align: center; margin-left:4.5% ">
+      <label  class="form-label">Texto</label>
+      <input formControlName="texto" style="width: 68%; margin-left: 1%" type="text"/>
+    </div>
+
+    <div class="formulario__grupo titulos_form" style="text-align: center; margin-left: 2.4%">
+      <label  class="form-label" style="margin-right: 1%"> Etiqueta </label>
+      <select formControlName="etiqueta" style="width: 67%">
+        <option *ngFor="let tag of tags" [value]="tag.nombre">{{ tag.nombre }}</option>
+      </select>
+    </div>
+
+    <div class="formulario__grupo titulos_form" style="text-align: center; margin-left: 5.4%">
+      <label  class="form-label">Link</label>
+      <input formControlName="link" style="width: 69%; margin-left: 1%" type="text"/>
+    </div>
+<!--    <input type="hidden" formControlName="token">-->
+<!--    <input type="hidden" formControlName="foto">-->
+    <!-- Mensaje de exito -->
+    <div class="notification is-success" *ngIf="successStatus">
+      <p>{{ successMsj }}</p>
+    </div>
+
+    <!-- Mensaje de error -->
+    <div class="notification is-danger" *ngIf="errorStatus">
+      <p>{{ errorMsj }}</p>
+    </div>
+
+
+  <input class="botons" type="submit" value="Publicar">
+  </form>
+</section>
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<header class="header">
+  <nav>
+  </nav>
+</header>
+<body>
+<h1 class="titulo">ADMINISTRADOR</h1>
+
+<section class="usuario">
+  <div class="container">
+    <button type="button" class="button is-link" (click)="usuarioRegister()">Comunidad</button>
+
+
+    <div class="row mt-4">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let user of userlist">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="font-weight: bold;">{{user.username}}</h5>
+            <p class="card-text" style="font-weight: bold;">{{user.id}}</p>
+            <p class="card-text">{{user.email}}</p>
+            <p class="card-text">{{user.createdOn}}</p>
+            <p class="card-text">{{user.descripcion}}</p>
+            <a>
+              <button type="submit" class="btn bg-danger my-3 mx-auto" (click)="eliminarUsuario(user.id)">Eliminar</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+
+
